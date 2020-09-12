@@ -1,0 +1,23 @@
+# set working directory
+setwd("Homework 2")
+
+# create a vector
+prob3 <- c(5,10,11,13,15,35,50,55,72,92,204,215)
+
+#install package classInt
+install.packages("classInt")
+library(classInt)
+
+# (3a) equal-depth partitioning with 3 values per bin (aka frequency)
+equal_dep <- classIntervals(prob3, 3, style = 'quantile')
+
+# (3b) equal width paritioning with 3 bins
+bins <- 3
+minVal <- min(prob3)
+maxval <- max(prob3)
+width = (maxval-minval)/bins
+cut(prob, breaks = seq(minVal, maxval,width ))
+
+
+# displays
+barplot(table(cut(prob3, breaks = seq(minVal, maxval,width))))
