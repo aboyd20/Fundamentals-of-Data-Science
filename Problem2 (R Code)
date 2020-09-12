@@ -1,0 +1,26 @@
+#(2a) Draw the boxplots for Age and %fat
+
+Age = c(23,23,27,27,39,41,47,49,50,52,54,54,56,57,58,58,60,61)
+boxplot(Age, main="Age boxplot", xlab="Age", ylab = "values")
+Percent_fat = c(9.5,26.5,7.8,17.8,31.4,25.9,27.4,27.2,31.2,34.6,42.5,28.8,33.4,30.2,34.1,32.9,41.2,35.7)
+boxplot(Percent_fat, main="Percent Fat boxplot", xlab="Percent Fat", ylab = "values")
+
+# (2b) Z-score normalization in r using the R built-in function scale()
+z_age = scale(Age)
+z_percent.fat = scale(Percent_fat)
+
+
+# (2d) Scatter Plot
+plot(Age, Percent_fat, main = "Scatter plot", xlab = "age", ylab="percent Fat")
+
+# (2e) Creating the Covariance and Correlation Matrices
+#create matrix from vectors
+M <- cbind(Age,Percent_fat)
+M
+
+#covariance matrix
+cov(M)
+
+# compute the correlation matrix
+res <- cor(M)
+round(res, 2)
